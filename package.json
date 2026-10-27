@@ -1,0 +1,18 @@
+{
+  "name": "studysphere-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-Stack MERN Study Resources Hub",
+  "scripts": {
+    "install:server": "npm --prefix server install",
+    "install:client": "npm --prefix client install",
+    "install:all": "npm run install:server && npm run install:client",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "dev": "node -e \"const { spawn } = require('child_process'); const p1 = spawn('npm', ['--prefix', 'server', 'run', 'start'], { stdio: 'inherit', shell: true }); const p2 = spawn('npm', ['--prefix', 'client', 'run', 'dev'], { stdio: 'inherit', shell: true }); process.on('SIGINT', () => { p1.kill(); p2.kill(); process.exit(); });\""
+  },
+  "keywords": ["mern", "react", "express", "mongodb", "jwt", "study-resources"],
+  "author": "",
+  "license": "ISC"
+}
