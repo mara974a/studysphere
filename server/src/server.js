@@ -46,6 +46,19 @@ app.use(
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Root Welcome Route
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: '🚀 StudySphere Backend API is live and operational!',
+    health: '/api/health',
+    endpoints: {
+      auth: '/api/auth',
+      resources: '/api/resources',
+    },
+  });
+});
+
 // Health Check route
 app.get('/api/health', (req, res) => {
   res.status(200).json({
